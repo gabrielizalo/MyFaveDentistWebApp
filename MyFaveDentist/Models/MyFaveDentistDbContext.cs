@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="TreatmentDoc.cs" company="Axioma X">
+// <copyright file="MyFaveDentistDbContext.cs" company="Axioma X">
 //  Copyright( c) 2017 Gabriel Porras
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -21,30 +21,33 @@
 //  SOFTWARE.
 // </copyright>
 // <summary>
-//   Defines the TreatmentDoc type.
+//   Patient class to store info about clients.
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
 namespace MyFaveDentist.Models
 {
+  using System.Data.Entity;
+
   /// <summary>
-  /// The patient.
+  /// The my fave dentist db context.
   /// </summary>
-  public class TreatmentDoc
+  // ReSharper disable once StyleCop.SA1650
+  public class MyFaveDentistDbContext: DbContext
   {
     /// <summary>
-    /// Gets or sets the id.
+    /// Gets or sets the patients.
     /// </summary>
-    public int Id { get; set; }
+    public DbSet <Patient> Patients { get; set; }
 
     /// <summary>
-    /// Gets or sets the treatment id.
+    /// Gets or sets the treatments.
     /// </summary>
-    public int TreatmentId { get; set; }
+    public DbSet <Treatment> Treatments { get; set; }
 
     /// <summary>
-    /// Gets or sets the url of the doc.
+    /// Gets or sets the treatments documents.
     /// </summary>
-    public string UrlDoc { get; set; }
+    public DbSet <TreatmentDoc> TreatmentsDocs { get; set; }
   }
 }
